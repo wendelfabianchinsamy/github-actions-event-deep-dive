@@ -7,6 +7,17 @@ on:
             - opened
     # we also want to add a manual event
     workflow_dispatch:
+    # event filters
+    push:
+        branches:
+            - main # only pushes to the main branch will trigger this workflow
+        # you can also filter by paths
+        # you want to run a workflow if files change in 
+        # specific path
+        # you can use path-ignore which does the opposite
+        # paths: 
+        paths-ignore:
+            - '.github/workflows/*'
 jobs:
     deploy:
         runs-on: ubuntu-latest
