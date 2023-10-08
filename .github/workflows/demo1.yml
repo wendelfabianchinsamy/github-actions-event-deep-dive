@@ -1,5 +1,12 @@
 name: Events Demo 1
-on: [push]
+on:
+    # we want this event to fire of when pull requests
+    # are opened
+    pull_request:
+        types: 
+            - opened
+    # we also want to add a manual event
+    workflow_dispatch:
 jobs:
     deploy:
         runs-on: ubuntu-latest
